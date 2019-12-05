@@ -1,1 +1,0 @@
-Warehousename Databasename Schemaname Objectname
