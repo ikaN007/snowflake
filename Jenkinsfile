@@ -47,8 +47,16 @@ pipeline {
     stage ('Approve') {
 	    steps {
 		    input 'Approve the DDL to Deploy to QA'
-		    git branch: 'QA', url: 'https://github.com/devopsyatin/snowflake.git'
-		   
+		  }
+	    {
+		    sh '''
+		    git clone https://github.com/devopsyatin/snowflake.git
+		    cd snowflake
+		    cp ../BIDW.DBA.$Objectname BIDW.DBA.$Objectname
+		    git add .
+		    git commit -m "adding the reviewed file"
+		    git push -u origin QA
+		    '''
 	    }
     }
 	  
