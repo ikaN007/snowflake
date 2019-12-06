@@ -37,21 +37,15 @@ pipeline {
 		   cat BIDW.DBA.$Objectname
 		   '''
 		}
-	}
-     }
-    stage ('Email for Review') {
-	    steps {
-	    emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
-	    }
-    }
-    stage ('Approve') {
-	    steps {
+	  }
+		  {
+		  emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
+	          }
+	    {
 		    input 'Approve the DDL to Deploy to QA'
-		  }
-    }
-    stage ('Push to QA Repo for Deployment')    {
-	    steps {
-	    	sh '''
+	    }
+	    {
+		sh '''
 		    pwd
 		    ls -lrth
 		    git clone https://github.com/devopsyatin/snowflake.git
@@ -65,9 +59,9 @@ pipeline {
 		    git commit -m "adding the reviewed file"
 		    #git remote add origin https://github.com/devopsyatin/snowflake.git
 		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git --all
-		    '''	    
+		    ''' 
 	    }
-    }
-	  
+     }
   }
 }
+ 
