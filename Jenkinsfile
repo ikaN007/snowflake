@@ -41,13 +41,12 @@ pipeline {
      }
     stage ('Email for Review') {
 	  
-	 emailext (
-      to: 'yatin.sawant@officedepot.com',
-      subject: Review the Build,
-      body: Review the below Code,
-      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-          )  
-    }
-  }	  
+	emailext body: """yatin.sawant@officedepot.com,
+
+ 
+Your snowflake test using CI/CD Pipeline has started with build # ${BUILD_TAG} for the following objects(s)
+ 
+Auto Generated Email by Jenkins""", subject: "Datastage Deployment Notice: ${BUILD_TAG}", to: "yatin.sawant@officedepot.com"
+    }	  
   }
 }
