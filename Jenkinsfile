@@ -48,8 +48,10 @@ pipeline {
 	    steps {
 		    input 'Approve the DDL to Deploy to QA'
 		  }
-	    {
-		sh '''
+    }
+    stage ('Push to QA Repo for Deployment')    {
+	    steps {
+	    	sh '''
 		    pwd
 		    ls -lrth
 		    git clone https://github.com/devopsyatin/snowflake.git
@@ -60,7 +62,8 @@ pipeline {
 		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* .
 		    git add .
 		    git commit -m "adding the reviewed file"
-		    git push https://yatin-sawant-od:Max@min1@github.com/devopsyatin/snowflake.git
+		    git remote add origin https://github.com/devopsyatin/snowflake.git
+		    git push -u origin QA
 		   '''	    
 	    }
     }
