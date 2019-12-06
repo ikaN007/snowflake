@@ -50,12 +50,14 @@ pipeline {
 		  }
 	    {
 		    sh '''
+		    pwd
+		    ls -lrth
 		    git clone https://github.com/devopsyatin/snowflake.git
 		    cd snowflake
-		    cp ../BIDW.DBA.$Objectname BIDW.DBA.$Objectname
-		    git add .
-		    git commit -m "adding the reviewed file"
-		    git push -u origin QA
+		    #cp ../BIDW.DBA.$Objectname BIDW.DBA.$Objectname
+		    #git add .
+		    #git commit -m "adding the reviewed file"
+		    #git push -u origin QA
 		    '''
 	    }
     }
