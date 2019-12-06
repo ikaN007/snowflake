@@ -49,14 +49,20 @@ pipeline {
 		    input 'Approve the DDL to Deploy to QA'
 		  }
 	    {
-		    
-	withCredentials([usernamePassword(credentialsId: 'yatin_git_creds', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    sh('cat /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA*')
-    sh('git add /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA*')
-    sh('git commit -m "adding the reviewed file"')
-    sh('git push https://github.com/devopsyatin/snowflake.git QA ${GIT_USERNAME}:${GIT_PASSWORD}')
-}
-		    }
+		sh '''
+		    pwd
+		    ls -lrth
+		    git clone https://github.com/devopsyatin/snowflake.git
+		    cd snowflake
+		    git checkout QA
+		    git config --global user.email "yatin.sawant@officedepot.com"
+		    git config --global user.name "yatin-sawant-od"
+		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* BIDW.DBA.*
+		    git add .
+		    git commit -m "adding the reviewed file"
+		    git push https://yatin-sawant-od:Max@min1@github.com/devopsyatin/snowflake.git
+		   '''	    
+	    }
     }
 	  
   }
