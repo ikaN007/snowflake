@@ -40,7 +40,7 @@ pipeline {
 	}
      }
     stage ('Email for Review') {
-	    Steps {
+	    steps {
 	    emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
 	    }
     }	  
