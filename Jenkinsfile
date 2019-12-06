@@ -38,13 +38,13 @@ pipeline {
 		   '''
 		}
 	  }
-		  {
-		  emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
-	          }
-	    {
+	  steps {
+	         emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
+	        }
+	  steps {
 		    input 'Approve the DDL to Deploy to QA'
-	    }
-	    {
+	        }
+	  steps {
 		sh '''
 		    pwd
 		    ls -lrth
@@ -60,8 +60,7 @@ pipeline {
 		    #git remote add origin https://github.com/devopsyatin/snowflake.git
 		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git --all
 		    ''' 
-	    }
+	      }
      }
   }
 }
- 
