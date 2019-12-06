@@ -57,7 +57,7 @@ pipeline {
 		    git checkout QA
 		    git config --global user.email "yatin.sawant@officedepot.com"
 		    git config --global user.name "yatin-sawant-od"
-		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* BIDW.DBA.*
+		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* .
 		    git add .
 		    git commit -m "adding the reviewed file"
 		    git push https://yatin-sawant-od:Max@min1@github.com/devopsyatin/snowflake.git
