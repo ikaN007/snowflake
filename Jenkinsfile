@@ -64,7 +64,7 @@ pipeline {
 		    git add .
 		    git commit -m "adding the reviewed file"
 		    #git remote add origin https://github.com/devopsyatin/snowflake.git
-		    git push https://yatin-sawant-od:Max%40min1@devopsyatin/snowflake.git --all
+		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git --all
 		    '''	    
 	    }
     }
