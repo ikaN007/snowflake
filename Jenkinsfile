@@ -62,8 +62,8 @@ pipeline {
 		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* .
 		    git add .
 		    git commit -m "adding the reviewed file"
-		    git remote add origin https://github.com/devopsyatin/snowflake.git
-		    git push -u origin QA
+		    #git remote add origin https://github.com/devopsyatin/snowflake.git
+		    git push -u origin QA yatin-sawant-od Max@min1
 		   '''	    
 	    }
     }
