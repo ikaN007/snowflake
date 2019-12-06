@@ -40,13 +40,8 @@ pipeline {
 	}
      }
     stage ('Email for Review') {
+	    emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
 	  
-	emailext body: """yatin.sawant@officedepot.com,
-
- 
-Your snowflake test using CI/CD Pipeline has started with build # ${BUILD_TAG} for the following objects(s)
- 
-Auto Generated Email by Jenkins""", subject: "Datastage Deployment Notice: ${BUILD_TAG}", to: "yatin.sawant@officedepot.com"
     }	  
   }
 }
