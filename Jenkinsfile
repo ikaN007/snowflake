@@ -43,6 +43,11 @@ pipeline {
 	    steps {
 	    emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
 	    }
-    }	  
+    }
+    stage ('Approve') {
+	    steps {
+		    input 'Approve the DDL'
+	    }
+    }
   }
 }
