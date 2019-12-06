@@ -28,7 +28,7 @@ pipeline {
 	      container('sqitch'){
 	           sh '''
 	           cat Objectlist.txt
-		   Objectname=`cat test | awk '{print $1}'`
+		   Objectname=`cat Ojectlist | awk '{print $1}'`
 		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p'
 		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$objectname
 		   cat BIDW.DBA.$objectname
