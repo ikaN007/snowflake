@@ -54,10 +54,10 @@ pipeline {
 		    ls -lrth
 		    git clone https://github.com/devopsyatin/snowflake.git
 		    cd snowflake
-		    #cp ../BIDW.DBA.$Objectname BIDW.DBA.$Objectname
-		    #git add .
-		    #git commit -m "adding the reviewed file"
-		    #git push -u origin QA
+		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* BIDW.DBA.*
+		    git add .
+		    git commit -m "adding the reviewed file"
+		    git push -u origin QA
 		    '''
 	    }
     }
