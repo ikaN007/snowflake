@@ -56,6 +56,7 @@ pipeline {
 		    ls -lrth
 		    git clone https://github.com/devopsyatin/snowflake.git
 		    cd snowflake
+		    git branch
 		    git checkout QA
 		    git config --global user.email "yatin.sawant@officedepot.com"
 		    git config --global user.name "yatin-sawant-od"
@@ -63,8 +64,8 @@ pipeline {
 		    git add .
 		    git commit -m "adding the reviewed file"
 		    #git remote add origin https://github.com/devopsyatin/snowflake.git
-		    git push -u origin QA yatin-sawant-od Max@min1
-		   '''	    
+		    git push https://yatin-sawant-od:Max%40min1@devopsyatin/snowflake.git --all
+		    '''	    
 	    }
     }
 	  
