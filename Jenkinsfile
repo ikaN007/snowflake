@@ -37,14 +37,14 @@ pipeline {
 		   cat BIDW.DBA.$Objectname
 		   '''
 		}
-	  }
-	  steps {
+	  
+	        {
 	         emailext body: 'Review the below Code', subject: 'Email For Review', to: 'yatin.sawant@officedepot.com'
 	        }
-	  steps {
+	        {
 		    input 'Approve the DDL to Deploy to QA'
 	        }
-	  steps {
+	        {
 		sh '''
 		    pwd
 		    ls -lrth
@@ -63,4 +63,5 @@ pipeline {
 	      }
      }
   }
+}
 }
