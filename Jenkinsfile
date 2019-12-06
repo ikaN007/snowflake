@@ -46,8 +46,10 @@ pipeline {
     }
     stage ('Approve') {
 	    steps {
-		    input 'Approve the DDL'
+		    input 'Approve the DDL to Deploy to QA'
+		    
 	    }
     }
+	  
   }
 }
