@@ -47,7 +47,8 @@ pipeline {
     stage ('Approve') {
 	    steps {
 		    input 'Approve the DDL to Deploy to QA'
-		    
+		    git branch: 'QA', url: 'https://github.com/devopsyatin/snowflake.git'
+		   
 	    }
     }
 	  
