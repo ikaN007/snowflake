@@ -15,6 +15,7 @@ pipeline {
 	     cp -r /root/bin/snowsql /bin/
 	     cp -r ~/.snowsql ./
 	     cp -r ~/.snowsql/config ./.snowsql/config
+	     cat ~/.snowsql/config
 	     chmod -R 777 .
              ''' 
          }
@@ -30,10 +31,10 @@ pipeline {
 		   pwd
 		   ls -lrth
 	           cat Objectlist.txt
-		   Objectname=`cat Ojectlist.txt | awk '{print $1}'`
-		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p'
-		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$objectname
-		   cat BIDW.DBA.$objectname
+		   #Objectname=`cat Ojectlist.txt | awk '{print $1}'`
+		   snowsql -q "SELECT GET_DDL('TABLE','GDW_AUDIT.TEST_TABLE1')" | sed -n '1!p'
+		   #snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$objectname
+		   #cat BIDW.DBA.$objectname
 		   '''
 		}
 	}
