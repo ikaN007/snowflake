@@ -15,6 +15,7 @@ pipeline {
 	     cp -r /root/bin/snowsql /bin/
 	     cp -r ~/.snowsql ./
 	     cp -r ~/.snowsql/config ./.snowsql/config
+	     cat ./.snowsql/config
 	     chmod -R 777 .
              ''' 
          }
