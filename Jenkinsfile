@@ -55,7 +55,7 @@ pipeline {
 		    pwd
 		    ls -lrth
 			apt-get install -y git
-		    git clone https://github.com/devopsyatin/snowflake.git -all
+		    git clone https://github.com/devopsyatin/snowflake.git -b qa
 		    cd snowflake
 		    git branch
 		    git branch -a
