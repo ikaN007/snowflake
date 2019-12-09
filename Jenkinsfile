@@ -15,7 +15,6 @@ pipeline {
 	     cp -r /root/bin/snowsql /bin/
 	     cp -r ~/.snowsql ./
 	     cp -r ~/.snowsql/config ./.snowsql/config
-	     cat ~/.snowsql/config
 	     chmod -R 777 .
              ''' 
          }
@@ -27,7 +26,7 @@ pipeline {
 	       sh '''
 		   pwd
 		   ls -lrth
-	       cat Objectlist.txt
+	           cat Objectlist.txt
 		   Objectname=`cat Objectlist.txt | awk '{print $1}'`
 		   snowsql -q "SELECT GET_DDL('TABLE','GDW_AUDIT.TEST_TABLE1')" | sed -n '1!p'
 		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$Objectname
@@ -54,19 +53,21 @@ pipeline {
 			sh '''
 		    pwd
 		    ls -lrth
-			apt-get install -y git
+		    apt-get install -y git
 		    git clone https://github.com/devopsyatin/snowflake.git -b qa
 		    cd snowflake
+		    ls -lrth
+		    pwd
 		    git branch
 		    git branch -a
 		    git checkout qa
 		    git config --global user.email "yatin.sawant@officedepot.com"
 		    git config --global user.name "yatin-sawant-od"
-		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* .
+		    cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .
 		    git add .
 		    git commit -m "adding the reviewed file"
-		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git --all
-		    ''' 
+		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git -b qa
+		    	   ''' 
 					}
 				}
 			}
