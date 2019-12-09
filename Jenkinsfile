@@ -55,10 +55,11 @@ pipeline {
 		    pwd
 		    ls -lrth
 			apt-get install -y git
-		    git clone https://github.com/devopsyatin/snowflake.git
+		    git clone https://github.com/devopsyatin/snowflake.git -all
 		    cd snowflake
 		    git branch
-		    git checkout QA
+		    git branch -a
+		    git checkout qa
 		    git config --global user.email "yatin.sawant@officedepot.com"
 		    git config --global user.name "yatin-sawant-od"
 		    cp /home/jenkins/agent/workspace/Snowflake_test_TEST_DEV/BIDW.DBA* .
