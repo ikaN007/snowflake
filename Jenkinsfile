@@ -39,8 +39,8 @@ pipeline {
 	  stage('Review the Code') {
 			steps {
 	         emailext attachmentsPattern: BIDW.DBA*
-			  body: $BUILD_NUMBER $BUILD_ID $BUILD_DISPLAY_NAME $JOB_NAME,
-     			  subject: 'Review the Code for $BUILD_NUMBER $BUILD_ID', 
+			 body: "Job '${BUILD_NUMBER}' '${BUILD_ID}' '${BUILD_DISPLAY_NAME}' '${JOB_NAME}'",
+				subject: "Review the Code for '${BUILD_NUMBER}' '${BUILD_ID}'", 
 			  to: 'yatin.sawant@officedepot.com'
 				  }
 			}
