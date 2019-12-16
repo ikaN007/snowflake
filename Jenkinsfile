@@ -38,7 +38,9 @@ pipeline {
 			}
 	  stage('Review the Code') {
 			steps {
-				emailext attachmentsPattern: 'BIDW.DBA.$Objectname', body: '${FILE,path="BIDW.DBA*"}', subject: "Build Number: ${env.BUILD_NUMBER} Job Name: ${env.JOB_NAME}", to: 'yatin.sawant@officedepot.com'
+				emailext attachmentsPattern: 'BIDW.DBA.$Objectname', 
+					body: '${FILE,path="/home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW.DBA.*"}', 
+					 subject: "Build Number: ${env.BUILD_NUMBER} Job Name: ${env.JOB_NAME}", to: 'yatin.sawant@officedepot.com'
 				  }
 			}
 
