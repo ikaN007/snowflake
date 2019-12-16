@@ -39,8 +39,8 @@ pipeline {
 	  stage('Review the Code') {
 			steps {
 	         emailext attachmentsPattern: BIDW.DBA*
-			  body: '${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}',
-     			  subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}", 
+			  body: $BUILD_NUMBER $BUILD_ID $BUILD_DISPLAY_NAME $JOB_NAME,
+     			  subject: 'Review the Code for $BUILD_NUMBER $BUILD_ID', 
 			  to: 'yatin.sawant@officedepot.com'
 				  }
 			}
