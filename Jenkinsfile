@@ -30,16 +30,16 @@ pipeline {
 	           cat Objectlist.txt
 		   Objectname=`cat Objectlist.txt | awk '{print $1}'`
 		   snowsql -q "SELECT GET_DDL('TABLE','GDW_AUDIT.TEST_TABLE1')" | sed -n '1!p'
-		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$Objectname
-		   cat BIDW.DBA.$Objectname
+		   snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$Objectname.sql
+		   cat BIDW.DBA.$Objectname.sql
 		   '''
 							}
 				}
 			}
 	  stage('Review the Code') {
 			steps {
-				emailext attachmentsPattern: 'BIDW.DBA.$Objectname', 
-					body: '${FILE,path="/home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW.DBA.*"}', 
+				emailext attachmentsPattern: *.sql, 
+					body: '${FILE,path="/home/jenkins/agent/workspace/Snowflake_test_test_dev/*.sql"}', 
 					 subject: "Build Number: ${env.BUILD_NUMBER} Job Name: ${env.JOB_NAME}", to: 'yatin.sawant@officedepot.com'
 				  }
 			}
