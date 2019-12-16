@@ -39,7 +39,7 @@ pipeline {
 	  stage('Review the Code') {
 			steps {
 				emailext attachmentsPattern: "*.sql", 
-					body: '${FILE,path="/home/jenkins/agent/workspace/Snowflake_test_test_dev/*.sql"}', 
+					body: "Review the Attached DDL Files to be deployed to TEST_QA DB.\n If no changes required. Please approve the Job in the below given URL Build URL: ${env.BUILD_URL}", 
 					 subject: "Build Number: ${env.BUILD_NUMBER} Job Name: ${env.JOB_NAME}", to: 'yatin.sawant@officedepot.com'
 				  }
 			}
