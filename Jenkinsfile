@@ -38,7 +38,7 @@ pipeline {
 			}
 	  stage('Review the Code') {
 			steps {
-	         emailext attachmentsPattern: 'BIDW-DBA', body: 'env.BUILD_NUMBER env.BUILD_ID env.BUILD_DISPLAY_NAME env.JOB_NAME', subject: 'Review the code', to: 'yatin.sawant@officedepot.com'
+				emailext attachmentsPattern: 'BIDW-DBA', body: '${env.BUILD_NUMBER} ${env.BUILD_ID} ${env.BUILD_DISPLAY_NAME} ${env.JOB_NAME}', subject: 'Review the code', to: 'yatin.sawant@officedepot.com'
 				  }
 			}
 
