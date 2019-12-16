@@ -38,7 +38,7 @@ pipeline {
 			}
 	  stage('Review the Code') {
 			steps {
-				emailext attachmentsPattern: *.sql, 
+				emailext attachmentsPattern: "*.sql", 
 					body: '${FILE,path="/home/jenkins/agent/workspace/Snowflake_test_test_dev/*.sql"}', 
 					 subject: "Build Number: ${env.BUILD_NUMBER} Job Name: ${env.JOB_NAME}", to: 'yatin.sawant@officedepot.com'
 				  }
