@@ -27,7 +27,7 @@ pipeline {
 		      sh 'pwd'
 		      sh 'ls -lrth'
 		      sh 'cat Objectlist.txt'
-		      sh './fetch_ddl.sh'
+		      sh 'bash fetch_ddl.sh'
 		      sh 'cat BIDW.DBA*.sql'
 	       				}
 				}
