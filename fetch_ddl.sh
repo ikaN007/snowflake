@@ -6,5 +6,5 @@ do
 awk 'NR == n' n="${rotate}" Objectlist.txt > oneline.txt
 fqdn=`awk '{ print $1 }' oneline.txt`
 objtype=`awk '{ print $2 }' oneline.txt`
-snowsql -q "SELECT GET_DDL('$objtype','$fqdn')" | grep -v GET_DDL > BIDW.${fqdn}.${objtype}; chmod a+x BIDW.${fqdn}.${objtype}
+snowsql -q "SELECT GET_DDL('$objtype','$fqdn')" | grep -v GET_DDL > BIDW.${fqdn}.${objtype}.sql; chmod a+x BIDW.${fqdn}.${objtype}.sql
 done
