@@ -1,5 +1,4 @@
 #!/bin/bash
-
 count=`cat /home/jenkins/agent/workspace/Snowflake_test_test_dev/Objectlist.txt | wc -l`
 for rotate in `seq 1 "$count"`
 do
