@@ -1,7 +1,7 @@
 #!/bin/bash
 
 count=`cat Objectlist.txt | wc -l`
-for rotate in `seq 1 "$count"`
+for rotate in `seq 1 "$count"`;
 do
 awk 'NR == n' n="${rotate}" Objectlist.txt > oneline.txt
 fqdn=`awk '{ print $1 }' oneline.txt`
