@@ -28,7 +28,7 @@ pipeline {
 		   pwd
 		   ls -lrth
 	           cat Objectlist.txt
-		   sh fetch_ddl.sh 
+		   ./fetch_ddl.sh 
 		   #Objectname=`cat Objectlist.txt | awk '{print $1}'`
 		   #snowsql -q "SELECT GET_DDL('TABLE','GDW_AUDIT.TEST_TABLE1')" | sed -n '1!p'
 		   #snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$Objectname.sql
