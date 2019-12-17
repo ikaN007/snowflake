@@ -69,7 +69,7 @@ pipeline {
 		    cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .
 		    git add .
 		    git commit -m "adding the reviewed file"
-		    git push https://yatin-sawant-od:Max%40min1@github.com/devopsyatin/snowflake.git qa
+		    git push https://devopsyatin:Dattaprasad%4010@github.com/devopsyatin/snowflake.git qa
 		    	   ''' 
 					}
 				}
