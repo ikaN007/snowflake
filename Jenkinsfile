@@ -27,10 +27,7 @@ pipeline {
 		      sh 'pwd'
 		      sh 'ls -lrth'
 		      sh 'cat Objectlist.txt'
-		      script {
- /home/jenkins/agent/workspace/Snowflake_test_test_dev/fetch_ddl.sh
-				}
-		      sh ''
+		      sh './fetch_ddl.sh'
 		      sh 'cat BIDW.DBA*.sql'
 	       				}
 				}
