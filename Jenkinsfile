@@ -31,7 +31,7 @@ pipeline {
 		      cat Objectlist.txt
 		      dos2unix fetch_ddl.sh
 		      ./fetch_ddl.sh
-		      cat BIDW.DBA*.sql
+		      ls -lrth BIDW.DBA*.sql
 		         '''
 	       				}
 				}
