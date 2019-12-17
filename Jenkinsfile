@@ -17,6 +17,7 @@ pipeline {
 	     cp -r ~/.snowsql/config ./.snowsql/config
 	     cat ./.snowsql/config
 	     chmod -R 777 .
+	     apt-get install -y dos2unix
              ''' 
          }
        }
@@ -24,11 +25,14 @@ pipeline {
     stage('Fetch the DDL from TEST_DEV DB') {
       	  steps {
 	      container('sqitch'){
-		      sh 'pwd'
-		      sh 'ls -lrth'
-		      sh 'cat Objectlist.txt'
-		      sh 'bash fetch_ddl.sh'
-		      sh 'cat BIDW.DBA*.sql'
+		      sh '''
+		      pwd
+		      ls -lrth
+		      cat Objectlist.txt
+		      dos2unix fetch_ddl.sh
+		      ./fetch_ddl.sh
+		      cat BIDW.DBA*.sql
+		         '''
 	       				}
 				}
 			}
