@@ -24,17 +24,12 @@ pipeline {
     stage('Fetch the DDL from TEST_DEV DB') {
       	  steps {
 	      container('sqitch'){
-	       sh '''
-		   pwd
-		   ls -lrth
-	           cat Objectlist.txt
-		   bash fetch_ddl.sh 
-		   #Objectname=`cat Objectlist.txt | awk '{print $1}'`
-		   #snowsql -q "SELECT GET_DDL('TABLE','GDW_AUDIT.TEST_TABLE1')" | sed -n '1!p'
-		   #snowsql -q "SELECT GET_DDL('TABLE','$Objectname')" | sed -n '1!p' > BIDW.DBA.$Objectname.sql
-		   cat BIDW.DBA*.sql
-		   '''
-							}
+		      sh 'pwd'
+		      sh 'ls -lrth'
+		      sh 'cat Objectlist.txt'
+		      sh '/home/jenkins/agent/workspace/Snowflake_test_test_dev/fetch_ddl.sh'
+		      sh 'cat BIDW.DBA*.sql'
+	       				}
 				}
 			}
 	  stage('Review the Code') {
