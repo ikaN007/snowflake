@@ -32,5 +32,5 @@ filename=`cat bidw_full_file_one_per_line.txt`
 
 #### Format for exection of command: echo "snowsql -f filename.sql -q USE DATABASE variable USE SCHEMA variable"
 
-snowsql -f $filename -q USE DATABASE $DB_NAME USE SCHEMA $schema
+snowsql -f $filename -d $DB_NAME -s $schema
 done
