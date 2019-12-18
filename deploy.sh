@@ -7,10 +7,12 @@
 
 ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
 ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt
-
+cat /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt
 ######################## Variable Declaration #################
-actual_file_count=`ls -1 /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | wc -l`
+actual_file_count=`ls -1 /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt | wc -l`
 file_files_count=`cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt | grep "BIDW" | wc -l`
+cat /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
+cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt | grep "BIDW"
 DB_NAME=TEST_QA
 
 echo "The number of actual files to process are $actual_file_count"
