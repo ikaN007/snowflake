@@ -32,5 +32,5 @@ filename=`cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_full_file_one
 
 #### Format for exection of command: echo "snowsql -f filename.sql -q USE DATABASE variable USE SCHEMA variable"
 
-snowsql -f $filename -d '$DB_NAME' -s '$schema'
+snowsql -f $filename -d $DB_NAME -s $schema
 done
