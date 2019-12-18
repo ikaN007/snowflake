@@ -4,17 +4,13 @@
 # Author: Shubham Saroj           #
 # Creation Date: 18 Dec 2019      #
 ###################################
-pwd
-ls -larth
-date
-ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
-ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt
+
+cat /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
+cat /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt
 cat /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt
 ######################## Variable Declaration #################
 actual_file_count=`ls -1 /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt | wc -l`
 file_files_count=`cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt | grep "BIDW" | wc -l`
-cat /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
-cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt | grep "BIDW"
 DB_NAME=TEST_QA
 
 echo "The number of actual files to process are $actual_file_count"
@@ -37,5 +33,4 @@ filename=`cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_full_file_one
 #### Format for exection of command: echo "snowsql -f filename.sql -q USE DATABASE variable USE SCHEMA variable"
 
 snowsql -f $filename -d '$DB_NAME' -s '$schema'
-ls -larth
 done
