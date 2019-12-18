@@ -1,0 +1,36 @@
+#!/bin/bash
+
+###################################
+# Author: Shubham Saroj           #
+# Creation Date: 18 Dec 2019      #
+###################################
+
+ls -larth BIDW*.sql | awk '{ print $NF }' > /root/scripts/deploy/full_bidw_file_listing.txt
+ls -larth BIDW*.sql | awk '{ print $NF }' > /root/scripts/deploy/bidw_file_listing.txt
+
+######################## Variable Declaration #################
+actual_file_count=`ls -1 BIDW.*.sql | wc -l`
+file_files_count=`cat /root/scripts/deploy/bidw_file_listing.txt | grep "BIDW" | wc -l`
+DB_NAME=TEST_QA
+
+echo "The number of actual files to process are $actual_file_count"
+echo "The number of file files to process are $file_files_count"
+
+
+for search in `seq 1 "$file_files_count"`
+do
+awk 'NR == n' n="${search}" /root/scripts/deploy/bidw_file_listing.txt > /root/scripts/deploy/bidw_file_one_per_line.txt
+awk 'NR == n' n="${search}" /root/scripts/deploy/full_bidw_file_listing.txt > /root/scripts/deploy/bidw_full_file_one_per_line.txt
+
+###################### Accept each parameter as variable ###################
+
+fqdn=`cat /root/scripts/deploy/bidw_file_one_per_line.txt | awk -F "." '{ print $2"."$3 }'`
+object=`cat /root/scripts/deploy/bidw_file_one_per_line.txt | awk -F "." '{ print $(NF-1) }'`
+schema=`cat /root/scripts/deploy/bidw_file_one_per_line.txt | awk -F "." '{ print $2 }'`
+filename=`cat /root/scripts/deploy/bidw_full_file_one_per_line.txt`
+
+
+#### Format for exection of command: echo "snowsql -f filename.sql -q USE DATABASE variable USE SCHEMA variable"
+
+echo "snowsql -f $filename -q USE DATABASE $DB_NAME USE SCHEMA $schema"
+done
