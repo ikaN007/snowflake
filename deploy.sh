@@ -4,7 +4,9 @@
 # Author: Shubham Saroj           #
 # Creation Date: 18 Dec 2019      #
 ###################################
-
+pwd
+ls -larth
+date
 ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/full_bidw_file_listing.txt
 ls -larth /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt | awk '{ print $NF }' > /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_file_listing.txt
 cat /home/jenkins/agent/workspace/Snowflake_test_qa/Objectlist_qa.txt
@@ -35,4 +37,5 @@ filename=`cat /home/jenkins/agent/workspace/Snowflake_test_qa/bidw_full_file_one
 #### Format for exection of command: echo "snowsql -f filename.sql -q USE DATABASE variable USE SCHEMA variable"
 
 snowsql -f $filename -d '$DB_NAME' -s '$schema'
+ls -larth
 done
