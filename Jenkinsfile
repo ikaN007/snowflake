@@ -53,26 +53,24 @@ pipeline {
 	  stage('Git SCM Commit to QA Branch') {
 			steps {
 				container('sqitch') {
-			
-		withCredentials([usernamePassword(credentialsId: '1ba6fd69-fc26-4fe2-8054-8e35163df090', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-			
-		    sh 'pwd'
-		    sh 'ls -lrth'
-		    sh 'apt-get install -y git'
-		    sh 'git clone https://github.com/devopsyatin/snowflake.git -b qa'
-		    sh 'cd snowflake'
-		    sh 'ls -lrth'
-		    sh 'pwd'
-		    sh 'git branch'
-		    sh 'git branch -a'
-		    sh 'git checkout qa'
-		    sh 'git config --global user.email "sawant.yatin@yahoo.in"'
-		    sh 'git config --global user.name "devopsyatin"'
-		    sh 'cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .'
-		    sh 'git add .'
-		    sh 'git commit -m "adding the reviewed file"'
-		    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/devopsyatin/snowflake.git qa'
-		}
+			sh '''
+		    pwd
+		    ls -lrth
+		    apt-get install -y git
+		    git clone https://github.com/devopsyatin/snowflake.git -b qa
+		    cd snowflake
+		    ls -lrth
+		    pwd
+		    git branch
+		    git branch -a
+		    git checkout qa
+		    git config --global user.email "yatin.sawant@officedepot.com"
+		    git config --global user.name "yatin-sawant-od"
+		    cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .
+		    git add .
+		    git commit -m "adding the reviewed file"
+		    git push https://devopsyatin:Dattaprasad%4010@github.com/devopsyatin/snowflake.git qa
+		    	   ''' 
 					}
 				}
 			}
