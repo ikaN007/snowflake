@@ -54,7 +54,7 @@ pipeline {
 			steps {
 				container('sqitch') {
 			
-		withCredentials([usernamePassword(credentialsId: 'yatin_git_creds', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+		withCredentials([usernamePassword(credentialsId: '1ba6fd69-fc26-4fe2-8054-8e35163df090', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
 			
 		    sh 'pwd'
 		    sh 'ls -lrth'
