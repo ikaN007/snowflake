@@ -64,8 +64,8 @@ pipeline {
 		    git branch
 		    git branch -a
 		    git checkout qa
-		    git config --global user.email "yatin.sawant@officedepot.com"
-		    git config --global user.name "yatin-sawant-od"
+		    git config --global user.email "sawant.yatin@yahoo.in"
+		    git config --global user.name "devopsyatin"
 		    cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .
 		    git add .
 		    git commit -m "adding the reviewed file"
