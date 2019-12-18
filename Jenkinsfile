@@ -71,7 +71,7 @@ pipeline {
 		    sh 'cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .'
 		    sh 'git add .'
 		    sh 'git commit -m "adding the reviewed file"'
-		    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/devopsyatin/snowflake.git qa
+		    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/devopsyatin/snowflake.git qa'
 		}
 					}
 				}
