@@ -28,10 +28,8 @@ pipeline {
 	      container('sqitch'){
 	           sh '''
 		   pwd
-		   ls -lrth
 		   dos2unix deploy.sh
 		   ./deploy.sh
-		   ls -lrth
 	      '''
 				}
 			}
