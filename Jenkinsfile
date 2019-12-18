@@ -16,6 +16,8 @@ pipeline {
 	     cp -r ~/.snowsql ./
 	     cp -r ~/.snowsql/config ./.snowsql/config
 	     cat ~/.snowsql/config
+	     apt-get install -y dos2unix
+	     apt-get install -y git
 	     chmod -R 777 .
              ''' 
          }
@@ -27,6 +29,9 @@ pipeline {
 	           sh '''
 		   pwd
 		   ls -lrth
+		   #dos2unix deploy.sh
+		   #./deploy.sh
+		   #ls -lrth
 	      '''
 				}
 			}
