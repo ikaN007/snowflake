@@ -52,11 +52,26 @@ pipeline {
 	   
 	  stage('Git SCM Commit to QA Branch') {
 			steps {
-				git branch: 'qa', credentialsId: '1ba6fd69-fc26-4fe2-8054-8e35163df090', url: 'https://github.com/devopsyatin/snowflake.git'
-				sh 'ls -lrth'
-				git add *.sql
-				git push .
-				
+				container('sqitch') {
+			sh '''
+		    pwd
+		    ls -lrth
+		    apt-get install -y git
+		    git clone https://github.com/devopsyatin/snowflake.git -b qa
+		    cd snowflake
+		    ls -lrth
+		    pwd
+		    git branch
+		    git branch -a
+		    git checkout qa
+		    git config --global user.email "yatin.sawant@officedepot.com"
+		    git config --global user.name "yatin-sawant-od"
+		    cp /home/jenkins/agent/workspace/Snowflake_test_test_dev/BIDW* .
+		    git add .
+		    git commit -m "adding the reviewed file"
+		    git push https://devopsyatin:Dattaprasad%4010@github.com/devopsyatin/snowflake.git qa
+		    	   ''' 
+					}
 				}
 			}
 		}
