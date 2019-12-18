@@ -29,7 +29,7 @@ pipeline {
 	           sh '''
 		   pwd
 		   dos2unix deploy.sh
-		   ./deploy.sh
+		   bash -x deploy.sh
 	      '''
 				}
 			}
