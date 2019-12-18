@@ -54,6 +54,8 @@ pipeline {
 			steps {
 				git branch: 'qa', credentialsId: '1ba6fd69-fc26-4fe2-8054-8e35163df090', url: 'https://github.com/devopsyatin/snowflake.git'
 				sh 'ls -lrth'
+				git add *.sql
+				git push -u origin qa
 				
 				}
 			}
